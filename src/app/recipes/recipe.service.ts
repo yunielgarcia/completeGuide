@@ -6,19 +6,17 @@ import {ShoppingListService} from "../shopping-list/shopping-list.service";
 @Injectable()
 export class RecipeService {
 
-  recipeSelected = new EventEmitter<Recipe>();
-
   private recipes: Recipe[] = [
     new Recipe(
-      'A test recipe',
-    'this is a simple test', 'https://c2.staticflickr.com/6/5092/5516645415_56680c19a7_b.jpg', [
+      'Quinoa',
+    'healthy meals', 'https://c2.staticflickr.com/6/5092/5516645415_56680c19a7_b.jpg', [
         new Ingredient('Meat', 1),
         new Ingredient('French Fries', 20)
       ]),
     new Recipe(
-      'A second test recipe',
-      'this is a simple test',
-      'https://c2.staticflickr.com/6/5092/5516645415_56680c19a7_b.jpg',
+      'Hamburguer',
+      'Delicious from wendys',
+      'http://www.publicdomainpictures.net/pictures/120000/velka/hamburger-open-top-bun.jpg',
       [
         new Ingredient('Meat', 2),
         new Ingredient('Buns', 3)
@@ -34,6 +32,10 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]): void {
     this.shlService.addIngredients(ingredients);
+  }
+
+  getRecipe(idx: number) {
+    return this.recipes[idx];
   }
 
 }
